@@ -19,20 +19,24 @@ For installation instructions, refer to your distribution's documentation.
 
 ### Building Instructions:
 
-Clone the repository:
+Set up Vagrant instance:
 ```
 git clone --recurse-submodules https://github.com/lutris/vagrant-builder  
 cd vagrant-builder 
 VAGRANT_DEFAULT_PROVIDER=virtualbox vagrant up  
-./makebuild.sh <name> <version> <winerepo> <branch>  
 ```
-where `<name> <version> <winerepo> <branch>` are parameters
+You may need to run `VAGRANT_DEFAULT_PROVIDER=virtualbox vagrant up` twice since it may ask to install vagrant-sshfs the first time.
+
+To build wine, run:
+```
+./makebuild.sh <name> <version> <winerepo> <branch>
+```
+where `<name> <version> <winerepo> <branch>` are parameters.
 
 Example: `./makebuild.sh lutris 6.10-7 https://github.com/lutris/wine lutris-6.10-7`  
 
-Final build will be placed in `vagrant-builder/vagrant_share/` with name format `wine-name-branch-x86_64.tar.xz`:  
-
-Example: `wine-lutris-6.10-7-x86_64.tar.xz`  
+Final build will be placed in `vagrant-builder/vagrant_share/` in a `wine-name-branch-x86_64.tar.xz` name format.
+For example: `wine-lutris-6.10-7-x86_64.tar.xz`  
 
 ### Build Installation:  
 
