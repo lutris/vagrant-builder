@@ -7,7 +7,7 @@
 vagrant up
 
 # start build
-vagrant ssh -c "ssh ubuntu@buildbot-bionic-amd64 \"cd buildbot/runners/wine && bash -x ./build.sh --as $1 --version $2 --with $3 --branch $4 --useccache --noupload --keep-upload-file --dependencies --usemingw\""
+vagrant ssh -c "ssh ubuntu@buildbot-bionic-amd64 \"cd buildbot/runners/wine && bash -x ./build.sh --as $1 --version $2 --with $3 --branch $4 --noupload --keep-upload-file --dependencies --usemingw\""
 
 vagrant ssh -c 'ssh ubuntu@buildbot-bionic-amd64 "mv buildbot/runners/wine/wine-*.tar.xz ~/"'
 vagrant ssh -c 'scp ubuntu@buildbot-bionic-amd64:/home/ubuntu/wine-*.tar.xz /vagrant/'
