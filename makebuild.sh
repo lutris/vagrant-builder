@@ -5,7 +5,6 @@
 # build name output: wine-lutris-6.10-7-x86_64.tar.xz
 
 vagrant up
-sleep 5
 
 # start build
 vagrant ssh -c "ssh ubuntu@buildbot-bionic-amd64 \"cd buildbot/runners/wine && bash -x ./build.sh --as $1 --version $2 --with $3 --branch $4 --noupload --keep-upload-file --dependencies --usemingw\""
